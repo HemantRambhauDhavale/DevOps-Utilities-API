@@ -255,7 +255,7 @@ During development, I worked on:
 
 ---
 
-# 🎯 BEST INTERVIEW EXPLANATION
+# BEST INTERVIEW EXPLANATION
 
 “This project is a modular Internal DevOps Utilities API developed using Python, FastAPI, psutil, and AWS Boto3 SDK.
 
@@ -266,3 +266,18 @@ I implemented modular backend architecture using routers and services, integrate
 I also implemented exception handling, status management, and scalable API organization similar to production backend systems.
 
 Through this project, I gained practical understanding of FastAPI backend development, infrastructure monitoring, AWS integrations, and DevOps automation workflows.”
+
+# ATS-Friendly Resume / LinkedIn Description
+
+🔹 Developed a modular Internal DevOps Utilities API using Python, FastAPI, psutil, and AWS Boto3 SDK to automate infrastructure monitoring and AWS utility workflows.
+
+🔹 Implemented 4+ REST API endpoints for real-time system metrics monitoring, CPU health analysis, AWS S3 bucket analysis, and infrastructure utility operations.
+
+🔹 Integrated psutil for CPU, memory, and disk usage monitoring with configurable threshold-based system health classification.
+
+🔹 Integrated AWS S3 services using Boto3 SDK and implemented automated bucket analysis workflows including bucket age classification and cloud resource monitoring.
+
+🔹 Designed scalable backend architecture using FastAPI routers and service layers with structured exception handling and JSON-based API responses.
+
+🔹 Gained hands-on experience in FastAPI, REST APIs, AWS integrations, infrastructure monitoring, backend architecture, DevOps workflows, and cloud automation.
+
