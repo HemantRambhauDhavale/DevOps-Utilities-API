@@ -281,3 +281,34 @@ Through this project, I gained practical understanding of FastAPI backend develo
 
 🔹 Gained hands-on experience in FastAPI, REST APIs, AWS integrations, infrastructure monitoring, backend architecture, DevOps workflows, and cloud automation.
 
+# How to Explain Architecture to Interviewer
+Client Request
+      ↓
+FastAPI Router Layer
+      ↓
+Service Layer (Business Logic)
+      ↓
+AWS / System Utilities
+      ↓
+JSON API Response
+
+# Simple Understanding of Folder Structure
+main.py
+↓
+Starts FastAPI Server
+
+app/api.py
+↓
+Creates FastAPI Application
+
+routers/
+↓
+Handles API Endpoints
+
+services/
+↓
+Contains Actual Business Logic
+
+# BEST INTERVIEW CLOSING LINE
+
+“This project helped me understand how production-style backend APIs are designed for DevOps monitoring, infrastructure automation, and AWS operational utilities using modular FastAPI architecture.”
