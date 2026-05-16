@@ -8,30 +8,94 @@ Internal API surface for common DevOps utilities, intended for internal teams:
 - Metrics
 - Log Analysis
 
-## Usage
+---
+
+# Usage
 
 ```bash
 git clone <repo-url>
 cd devops-utilities-api
 ```
 
-### setup python environment
+---
+
+## Setup Python Environment
+
 ```bash
 python3.14 -m venv venv
 source venv/bin/activate
 ```
 
-### install requirements
+---
+
+## Install Requirements
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### run application
+---
+
+## Run Application
+
 ```bash
 python main.py
 ```
 
-# Internal DevOps Utilities API using FastAPI, Python & AWS
+---
+
+# 🐳 Docker Setup (NEW)
+
+## Build Docker Image
+
+```bash
+docker build -t devops-utilities-api .
+```
+
+---
+
+## Run Docker Container
+
+```bash
+docker run -p 8000:8000 devops-utilities-api
+```
+
+---
+
+# 🐳 Dockerfile
+
+```dockerfile
+FROM python:3.14
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8000
+
+CMD ["python","main.py"]
+```
+
+---
+
+# ☁️ AWS EC2 Deployment
+
+After Dockerizing the application:
+
+- Created AWS EC2 Linux Instance
+- Installed Docker CLI on EC2
+- Built Docker image on server
+- Ran containerized FastAPI application
+- Exposed application on Port 8000
+- Accessed APIs remotely using EC2 Public IP
+
+This converted the project from a local development backend into a cloud-hosted production-style DevOps utility API.
+
+---
+
+# Internal DevOps Utilities API using FastAPI, Python, Docker & AWS
 
 ---
 
@@ -50,6 +114,9 @@ I wanted to understand how internal DevOps utility platforms are designed in pro
 
 The idea was to build a centralized Internal DevOps Utilities API that could expose system monitoring and AWS utility operations through scalable REST APIs.
 
+Additionally, I wanted to simulate real-world production deployment practices used by DevOps teams.  
+So I enhanced the project using Docker containerization and deployed it on AWS EC2.
+
 ---
 
 # 🟦 Task (Goal / Responsibility)
@@ -60,19 +127,30 @@ My task was to design and develop a modular DevOps utility backend API capable o
 * exposing infrastructure utility endpoints,
 * integrating AWS services,
 * analyzing S3 bucket information,
-* and following scalable API architecture practices.
+* following scalable API architecture practices,
+* containerizing the application using Docker,
+* and deploying the application on AWS EC2.
 
 The goal was to:
 
 * reduce repetitive manual monitoring tasks,
 * centralize operational utilities,
-* and simulate real-world DevOps backend utility systems.
+* simulate real-world DevOps backend utility systems,
+* and understand production deployment workflows.
 
 ---
 
 # 🟦 Action (Actual Implementation / Technologies Used)
 
-I implemented the project using Python, FastAPI, psutil, and AWS Boto3 SDK.
+I implemented the project using:
+
+- Python
+- FastAPI
+- Uvicorn
+- psutil
+- AWS Boto3 SDK
+- Docker
+- AWS EC2
 
 ---
 
@@ -175,6 +253,45 @@ This simulates cloud governance and AWS resource analysis workflows.
 
 ---
 
+## ✅ Docker Containerization (NEW ADDITION)
+
+To make the application production-ready and portable, I containerized the FastAPI application using Docker.
+
+Created a custom Dockerfile to:
+
+* package the application with all dependencies,
+* eliminate environment dependency issues,
+* ensure same behavior across systems,
+* simplify deployment process,
+* and support scalable DevOps deployment workflows.
+
+Docker helped in running the project consistently across local systems and cloud servers without manual dependency setup.
+
+This follows real-world DevOps deployment standards used in production environments.
+
+---
+
+## ✅ AWS EC2 Deployment
+
+After Dockerizing the application:
+
+* created AWS EC2 Linux instance,
+* installed Docker CLI on EC2,
+* built Docker image,
+* ran containerized FastAPI application,
+* exposed application using Port 8000,
+* and hosted the backend API on cloud infrastructure.
+
+This gave practical understanding of:
+
+* cloud deployment,
+* server configuration,
+* container execution,
+* networking,
+* and production-style backend hosting.
+
+---
+
 ## ✅ Error Handling & API Reliability
 
 Implemented:
@@ -200,12 +317,16 @@ This improved API reliability and production-readiness.
 * Uvicorn
 * AWS Boto3
 * psutil
+* Docker
+* AWS EC2
 * REST APIs
 * AWS S3
 * JSON APIs
 * DevOps Monitoring
 * Infrastructure Monitoring
 * Backend API Architecture
+* Containerization
+* Cloud Deployment
 
 ---
 
@@ -220,21 +341,27 @@ During development, I worked on:
 * exception handling
 * timezone-aware bucket age calculations
 * scalable backend organization using routers and services
+* Docker containerization
+* EC2 deployment setup
+* application hosting on cloud infrastructure
 
 ---
 
 # 🟦 Result (Outcome / Quantifiable Impact)
 
-* Successfully developed a modular Internal DevOps Utilities API for infrastructure monitoring and AWS utilities.
+* Successfully developed and deployed a modular Internal DevOps Utilities API for infrastructure monitoring and AWS utilities.
 
 * Automated 4+ operational utility workflows including:
 
   * system metrics monitoring,
   * CPU health analysis,
   * AWS S3 bucket analysis,
-  * and infrastructure utility API exposure.
+  * infrastructure utility API exposure,
+  * and containerized deployment workflows.
 
 * Built reusable and scalable REST API architecture using FastAPI routers and service layers.
+
+* Successfully Dockerized the application and deployed it on AWS EC2 cloud server.
 
 * Improved understanding of:
 
@@ -242,6 +369,8 @@ During development, I worked on:
   * DevOps monitoring workflows,
   * AWS integrations,
   * infrastructure health analysis,
+  * Docker containerization,
+  * cloud deployment,
   * and production-style backend architecture.
 
 * Gained hands-on experience in:
@@ -249,6 +378,8 @@ During development, I worked on:
   * FastAPI,
   * REST API development,
   * AWS Boto3,
+  * Docker,
+  * AWS EC2,
   * infrastructure monitoring,
   * backend modular architecture,
   * and DevOps utility automation.
@@ -257,19 +388,23 @@ During development, I worked on:
 
 # BEST INTERVIEW EXPLANATION
 
-“This project is a modular Internal DevOps Utilities API developed using Python, FastAPI, psutil, and AWS Boto3 SDK.
+“This project is a modular Internal DevOps Utilities API developed using Python, FastAPI, psutil, AWS Boto3 SDK, Docker, and AWS EC2.
 
 The main goal was to centralize DevOps operational utilities such as system monitoring and AWS resource analysis through REST APIs.
 
 I implemented modular backend architecture using routers and services, integrated psutil for real-time CPU, memory, and disk monitoring, and used Boto3 to analyze AWS S3 bucket information.
 
+To make the project production-ready, I containerized the application using Docker and deployed it on AWS EC2 cloud infrastructure.
+
 I also implemented exception handling, status management, and scalable API organization similar to production backend systems.
 
-Through this project, I gained practical understanding of FastAPI backend development, infrastructure monitoring, AWS integrations, and DevOps automation workflows.”
+Through this project, I gained practical understanding of FastAPI backend development, infrastructure monitoring, AWS integrations, Docker containerization, cloud deployment, and DevOps automation workflows.”
+
+---
 
 # ATS-Friendly Resume / LinkedIn Description
 
-🔹 Developed a modular Internal DevOps Utilities API using Python, FastAPI, psutil, and AWS Boto3 SDK to automate infrastructure monitoring and AWS utility workflows.
+🔹 Developed a modular Internal DevOps Utilities API using Python, FastAPI, psutil, Docker, and AWS Boto3 SDK to automate infrastructure monitoring and AWS utility workflows.
 
 🔹 Implemented 4+ REST API endpoints for real-time system metrics monitoring, CPU health analysis, AWS S3 bucket analysis, and infrastructure utility operations.
 
@@ -279,36 +414,54 @@ Through this project, I gained practical understanding of FastAPI backend develo
 
 🔹 Designed scalable backend architecture using FastAPI routers and service layers with structured exception handling and JSON-based API responses.
 
-🔹 Gained hands-on experience in FastAPI, REST APIs, AWS integrations, infrastructure monitoring, backend architecture, DevOps workflows, and cloud automation.
+🔹 Containerized the FastAPI application using Docker and deployed it on AWS EC2 cloud server for production-style backend hosting.
+
+🔹 Gained hands-on experience in FastAPI, REST APIs, Docker, AWS EC2, AWS integrations, infrastructure monitoring, backend architecture, DevOps workflows, and cloud automation.
+
+---
 
 # How to Explain Architecture to Interviewer
-Client Request
-      ↓
-FastAPI Router Layer
-      ↓
-Service Layer (Business Logic)
-      ↓
-AWS / System Utilities
-      ↓
+
+Client Request  
+      ↓  
+FastAPI Router Layer  
+      ↓  
+Service Layer (Business Logic)  
+      ↓  
+AWS / System Utilities  
+      ↓  
 JSON API Response
 
+---
+
 # Simple Understanding of Folder Structure
-main.py
-↓
+
+main.py  
+↓  
 Starts FastAPI Server
 
-app/api.py
-↓
+app/api.py  
+↓  
 Creates FastAPI Application
 
-routers/
-↓
+routers/  
+↓  
 Handles API Endpoints
 
-services/
-↓
+services/  
+↓  
 Contains Actual Business Logic
+
+Dockerfile  
+↓  
+Containerizes Application for Deployment
+
+AWS EC2  
+↓  
+Hosts Application on Cloud Server
+
+---
 
 # BEST INTERVIEW CLOSING LINE
 
-“This project helped me understand how production-style backend APIs are designed for DevOps monitoring, infrastructure automation, and AWS operational utilities using modular FastAPI architecture.”
+“This project helped me understand how production-style backend APIs are designed for DevOps monitoring, infrastructure automation, Docker containerization, cloud deployment, and AWS operational utilities using modular FastAPI architecture.”
